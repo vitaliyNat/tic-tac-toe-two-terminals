@@ -143,9 +143,7 @@ int main(int argc, char ** argv) {
             }
 
             strcpy(hit,buff);
-            printf("%s\n",hit);
             int target = atoi(hit);
-            printf("%d\n",target);
 
             gameMap[target-1] = 2;
             if(strcmp(buff,"_I_WIN_")==0 ||strcmp(buff,"_I_LOST_")==0||strcmp(buff,"_DRAW_")==0){
@@ -186,9 +184,7 @@ int main(int argc, char ** argv) {
             char hit[3];
 
             strcpy(hit,buff);
-            printf("%s\n",hit);
             int target = atoi(hit);
-            printf("%d\n",target);
 
             gameMap[target-1] = 1;
             if(strcmp(buff,"_I_WIN_")==0 ||strcmp(buff,"_I_LOST_")==0||strcmp(buff,"_DRAW_")==0){
