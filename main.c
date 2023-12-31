@@ -148,22 +148,28 @@ int main(int argc, char ** argv) {
             printf("%d\n",target);
 
             gameMap[target-1] = 2;
-            if(strcmp(buff,"_I_WIN_")==0){
+            if(strcmp(buff,"_I_WIN_")==0 ||strcmp(buff,"_I_LOST_")==0||strcmp(buff,"_DRAW_")==0){
                 break;
             }
 
 
         }
-
-        strcpy(buff,"_I_WIN_");
         showGameMap();
         if(isYouWin(imPlayedX)){
+            strcpy(buff,"_I_WIN_");
             printf("Congrats! You are winner!\n");
-        }else if(isDraw()){
-            printf("Draw!\n");
-        }else{
+        }else if(isYouWin(2)){
+            strcpy(buff,"_I_LOST_");
             printf("Good luck next time\n");
+        }else if(strcmp(buff,"_I_WIN_")==0){
+            printf("Good luck next time\n");
+        }else if(strcmp(buff,"_I_LOST_") == 0){
+            printf("Congrats! You are winner!\n");
+        }else {
+            strcpy(buff,"_DRAW_");
+            printf("Draw!\n");
         }
+
 
     }else{
         printf("Press <Enter> to connect a game\n");
@@ -185,7 +191,7 @@ int main(int argc, char ** argv) {
             printf("%d\n",target);
 
             gameMap[target-1] = 1;
-            if(strcmp(buff,"_I_WIN_")==0){
+            if(strcmp(buff,"_I_WIN_")==0 ||strcmp(buff,"_I_LOST_")==0||strcmp(buff,"_DRAW_")==0){
                 break;
             }
             int myTarget;
@@ -216,18 +222,24 @@ int main(int argc, char ** argv) {
 
 
         }
-
-        strcpy(buff,"_I_WIN_");
         showGameMap();
         if(isYouWin(imPlayedO)){
+            strcpy(buff,"_I_WIN_");
+            printf("Congrats! You are winner!\n");
+        }else if(isYouWin(1)){
+            strcpy(buff,"_I_LOST_");
+            printf("Good luck next time\n");
+        }else if(strcmp(buff,"_I_WIN_") == 0){
+            printf("Good luck next time\n");
+        }else if(strcmp(buff,"_I_LOST_") == 0){
             printf("Congrats! You are winner!\n");
         }
-        else if(isYouWin(1)){
-            printf("Good luck next time\n");
-
-        }else {
+        else {
+            strcpy(buff,"_DRAW_");
             printf("Draw!\n");
         }
+
+
     }
     printf("New Game?\n");
     int choose;
